@@ -33,6 +33,21 @@ var ClangUnknownCflags = sorted([]string{
 	"-Wunused-but-set-parameter",
 	"-Wunused-but-set-variable",
 	"-fdiagnostics-color",
+	"-falign-inner-loops",
+	"-falign-labels=1",
+	"-falign-loops=1",
+	"-falign-functions=1",
+	"-falign-jumps=1",
+	"-fno-inline-small-functions",
+	"-fno-guess-branch-probability",
+	"-fno-gcse",
+	"-fira-hoist-pressure",
+	"-fira-loop-pressure",
+	"-fsched-pressure",
+	"-fsched-spec-load",
+	"-fpredictive-commoning",
+	"-ftree-partial-pre",
+	"-fivopts",
 
 	// arm + arm64 + mips + mips64
 	"-fgcse-after-reload",
@@ -73,6 +88,7 @@ var ClangLibToolingUnknownCflags = []string{
 func init() {
 	pctx.StaticVariable("ClangExtraCflags", strings.Join([]string{
 		"-D__compiler_offsetof=__builtin_offsetof",
+		"-O3",
 
 		// Help catch common 32/64-bit errors.
 		"-Werror=int-conversion",
